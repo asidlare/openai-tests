@@ -3,4 +3,5 @@ pytest
 dotenv
 openai
 pydantic
+instructor
 
