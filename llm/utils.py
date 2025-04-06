@@ -27,22 +27,20 @@ def get_simple_response(
     return response.choices[0].message.content
 
 
-def get_response_with_tool_call(
+def get_response_with_response_format(
     messages,
-    tools,
+    response_format,
     model="gpt-4o-mini-2024-07-18",
-    tool_choice="auto",
     temperature=0,
     max_tokens=200,
 ):
-    response = client.chat.completions.create(
+    response = client.beta.chat.completions.parse(
         model=model,
         store=True,
         messages=messages,
-        tools=tools,
-        tool_choice=tool_choice,
+        response_format=response_format,
         temperature=temperature,
         max_tokens=max_tokens,
     )
 
-    return response.choices[0].message.tool_calls
+    return response.choices[0].message.content

@@ -4,8 +4,8 @@
 from enum import Enum
 import json
 from pydantic import BaseModel, Field
-from typing import List
-from llm.utils import get_response_with_tool_call
+from typing import List, Optional
+from llm.utils import get_response_with_response_format
 
 import pprint
 
@@ -24,7 +24,7 @@ class Ingredient(BaseModel):
     unit: Quantity = Field(
         ...,
         description="""
-        Jednostka miary zgodnie z wytycznymi (ogranicz się do: kg, g, l, ml, szt:
+        Jednostka miary zgodnie z wytycznymi (ogranicz się do: kg, g, l, ml, szt):
         - mąka, ser, produkty sypkie -> kg (kilogram)
         - przyprawy i produkty słodzące -> g (gram)
         - mleko, olej i płyny -> l (litr)
@@ -37,8 +37,8 @@ class Step(BaseModel):
     step_number: int = Field(..., description="Numer kroku")
     description: str = Field(..., description="Opis kroku przygotowania")
     duration: float = Field(..., description="Czas trwania kroku (w minutach)")
-    additional_notes: str = Field(
-        default="",
+    additional_notes: Optional[str] = Field(
+        ...,
         description="Dodatkowe uwagi dotyczące kroku (np. 'Wymieszaj jajka z serkiem mascarpone na gładka masę')"
     )
 
@@ -65,21 +65,14 @@ def create_recipe(name: str) -> Recipe:
             "content": name
         },
     ]
-    tools = [{
-        "type": "function",
-        "function": {
-            "name": "Recipe",
-            "description": "Podaje nazwę, składniki i opis przygotowania dania",
-            "parameters": Recipe.model_json_schema()
-        }
-    }]
 
-    return get_response_with_tool_call(
+    return get_response_with_response_format(
         messages=messages,
-        tools=tools
+        response_format=Recipe,
+        max_tokens=1000
     )
 
 
 if __name__ == "__main__":
     response = create_recipe("przepis na naleśniki keto z serkiem mascarpone")
-    pprint.pprint(response[0].function)
+    pprint.pprint(json.loads(response))
