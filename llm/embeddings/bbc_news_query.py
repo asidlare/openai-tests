@@ -29,5 +29,41 @@ collection = client.get_collection(
     )
 )
 
-query_result = collection.query(query_texts=["China"], n_results=3)
-print(query_result)
+
+def process_query_result(query_result):
+    return [
+        {query_result["documents"][0][nr]: query_result["metadatas"][0][nr]["category"]}
+        for nr in range(len(query_result["ids"][0]))
+    ]
+
+
+if __name__ == "__main__":
+    query_result = collection.query(query_texts=["China"], n_results=3)
+    print(query_result)
+
+    query_result = collection.query(query_texts=["Blog reading explodes in America"], n_results=3)
+    print(query_result["documents"])
+
+    query_result = collection.query(query_texts=["Uefa approves fake grass"], n_results=5)
+    output = process_query_result(query_result)
+    print(output)
+
+    query_result = collection.query(query_texts=["economy recession"], n_results=5)
+    output = process_query_result(query_result)
+    print(output)
+
+    query_result = collection.query(
+        query_texts=["economy recession"],
+        where={"category": "politics"},
+        n_results=5
+    )
+    output = process_query_result(query_result)
+    print(output)
+
+    query_result = collection.query(
+        query_texts=["economy recession"],
+        where={"category": "business"},
+        n_results=5
+    )
+    output = process_query_result(query_result)
+    print(output)
