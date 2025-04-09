@@ -1,11 +1,11 @@
 import os
 
 
-root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+root_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 
 
 def read_markdown(file_name):
-    full_path = f"{root_path}/llm/lesson3-rag/md/{file_name}"
+    full_path = f"{root_path}/llm/md/{file_name}"
     with open(full_path) as f:
         return "".join( f.readlines() )
 
