@@ -6,3 +6,4 @@ pydantic
 instructor
 chromadb
 pandas
+pyarrow
