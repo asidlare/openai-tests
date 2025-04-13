@@ -7,3 +7,4 @@ instructor
 chromadb
 pandas
 pyarrow
+loguru

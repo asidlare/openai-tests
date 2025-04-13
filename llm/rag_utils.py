@@ -102,3 +102,15 @@ def extract_tables_from_parquet_file(table_ids, document_id=0):
             axis=1).values
     )
     return selected_tables
+
+
+def get_documents_dataframe():
+    return pd.read_parquet(f"{root_path}/llm/rag_financial_data/documents.parquet")
+
+
+def get_tables_dataframe():
+    return pd.read_json(f"{root_path}/llm/rag_financial_data/tables.jsonl", lines=True)
+
+
+def get_tables_raw_dataframe():
+    return pd.read_parquet(f"{root_path}/llm/rag_financial_data/tables_raw.parquet")
