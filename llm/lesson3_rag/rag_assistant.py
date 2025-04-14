@@ -14,6 +14,24 @@ from llm.rag_utils import (
 from llm.utils import get_response_with_instructor
 
 
+"""
+Module: RAG Document Retrieval and Question Answering
+
+This module implements a **Retrieval-Augmented Generation (RAG)** system for answering questions
+by retrieving relevant documents and tables, analyzing them, and generating natural language answers.
+
+The key components include:
+1. `Retriever`: Handles document and table retrieval based on user questions and metadata.
+2. `Generator`: Generates natural language answers from the retrieved context.
+3. `ContextFormatter`: Formats retrieved tables and contexts for query answering.
+4. `RAGAssistant`: An end-to-end assistant for answering user queries using the RAG system.
+
+Dependencies:
+- pandas (pd): For data table handling.
+"""
+
+
+
 # initialize logger
 logger.remove()
 
@@ -43,6 +61,18 @@ logger.other = other
 
 
 class Company(enum.Enum):
+    """
+    Represents a predefined list of companies that can be queried.
+
+    Attributes:
+        ENEA (str): Represents the ENEA company.
+        TAURON (str): Represents the TAURON company.
+        PKOBP (str): Represents the PKO BP bank.
+        KGHM (str): Represents the KGHM company.
+        PGE (str): Represents the PGE company.
+        ORLEN (str): Represents the ORLEN company.
+        PZU (str): Represents the PZU financial group.
+    """
     ENEA = 1
     TAURON = 2
     PKOBP = 3
@@ -64,11 +94,26 @@ company_descriptions = {
 
 
 class TimePeriod(BaseModel):
+    """
+    Represents a time period with start and end dates.
+
+    Attributes:
+        start_date (str): The start date of the period (ISO format).
+        end_date (str): The end date of the period (ISO format).
+    """
     start_date: date = Field(..., description="Data początkowa")
     end_date: date = Field(..., description="Data końcowa")
 
 
 class Question(BaseModel):
+    """
+    Represents a user question with metadata about company and time period.
+
+    Attributes:
+        original_question (str): The original user question in natural language.
+        company (str): Company name relevant to the question.
+        time_period (TimePeriod): Time period associated with the user question.
+    """
     original_question: str = Field(
         ...,
         description="Oryginalne pytanie zadane przez użytkownika"
@@ -86,6 +131,15 @@ class Question(BaseModel):
 
 
 class TableContext(BaseModel):
+    """
+    Encapsulates the context for a question, including reasoning and relevant tables.
+
+    Attributes:
+        question (Question): The question object for this context.
+        reasoning_steps (str): Explanation of the reasoning for table relevance.
+        explain_your_decision (str): Additional explanation for the decision-making process.
+        relevant_table_ids (list): List of IDs for tables relevant to this context.
+    """
     question: str = Field(..., description="Pytanie, na które chcemy uzyskać odpowiedź.")
     reasoning_steps: List[str] = Field(
         ...,
@@ -130,6 +184,30 @@ class TableContextWithExtendedAnalysis(BaseModel):
 #
 ###################################################################################################
 class Retriever(BaseModel):
+    """
+    Handles retrieval of documents and tables related to a user's question.
+
+    Attributes:
+        user_question (Question): The user question to process.
+        follow_up_questions (list): List of follow-up questions to refine the retrieval.
+        _df_docs (pd.DataFrame): Private store of document metadata or content.
+        _df_tables (pd.DataFrame): Private store of table metadata or content.
+        _found_tables (list): Tables identified as relevant to the user's question.
+        _follow_up_tables (list): Tables identified for follow-up queries.
+        _user_question_tables (list): Tables directly relevant to the question.
+
+    Methods:
+        found_context_tables(): Finds context tables related to the question.
+        search(): Searches for relevant documents and tables.
+        _load_data(): Loads data into internal structures for retrieval.
+        _get_company_documents(): Filters company-specific documents.
+        _get_tables_from_documents(): Extracts tables from document metadata.
+        _table_metadata(): Processes metadata for all tables.
+        _generate_table_context(): Generates a context from retrieved tables.
+        _find_relevant_tables(): Identifies tables most relevant to the question.
+        _process_search_results(): Processes retrieved results for use.
+        verbose(): Provides a detailed output of the retrieval process.
+    """
     user_question: Question
 
     follow_up_questons: List[Question] = Field(
@@ -277,6 +355,17 @@ class Retriever(BaseModel):
 
 
 def ask_fa(query):
+    """
+    Handles the logic to ask a specific question and interact with the RAG Assistant.
+
+    Parameters:
+        QUESTION (str): The natural language question to be asked.
+        assistant (RAGAssistant): The RAG assistant object to process the question.
+        result (str): Result message or placeholder.
+
+    Returns:
+        str: The answer produced by the assistant.
+    """
     system_prompt = f"""
         Jesteś asystentem finansowym.
 
@@ -304,6 +393,14 @@ def ask_fa(query):
 #
 ###################################################################################################
 class GeneratorAnswer(BaseModel):
+    """
+    Represents a generated answer for a given question.
+
+    Attributes:
+        question (Question): The user question being addressed.
+        answer (str): The generated answer.
+        explanation (str): A textual explanation of how the answer was generated.
+    """
     question: str = Field(..., description="Treść pytania.")
     answer: str = Field(..., description="Odpowiedź na pytanie.")
     explanation: List[str] = Field(
@@ -313,8 +410,13 @@ class GeneratorAnswer(BaseModel):
 
 
 class ContextFormatter:
-    """Klasa odpowiedzialna za formatowanie kontekstu z danych wyszukanych przez retriever."""
+    """
+    Formats the context and tables for generator input.
 
+    Methods:
+        format_row(): Formats a single row of a table for easier comprehension.
+        format_context(): Formats the entire context for generation or debugging.
+    """
     @staticmethod
     def format_row(row):
         return f"""
@@ -336,8 +438,12 @@ class ContextFormatter:
 
 
 class Generator:
-    """Klasa odpowiedzialna za generowanie odpowiedzi na podstawie kontekstu."""
+    """
+    Handles the generation of natural language answers from table-based context.
 
+    Methods:
+        generate(): Creates a natural language answer based on context and user question.
+    """
     def generate(self, retriever) -> GeneratorAnswer:
         follow_up_questions, context_with_relevant_data = ContextFormatter.format_context(retriever)
 
@@ -373,8 +479,17 @@ class Generator:
 ###################################################################################################
 
 class RAGAssistant:
-    """Główna klasa asystenta integrująca retriever i generator."""
+    """
+    End-to-end Retrieval-Augmented Generation assistant for question answering.
 
+    Attributes:
+        logger (Logger): Logger instance for debugging and tracking the process.
+        generator (Generator): The generator instance for producing answers.
+
+    Methods:
+        __init__(): Initializes the RAG Assistant with necessary dependencies.
+        ask(): Handles the end-to-end process of retrieval and answer generation for a user query.
+    """
     def __init__(self, logger=None):
         self.generator = Generator()
         self.logger = logger
@@ -398,6 +513,12 @@ class RAGAssistant:
 
 
 if __name__ == "__main__":
+    """
+    Main function to execute the RAG question-answering system.
+
+    Orchestrates the retrieval, context formatting, and generation steps to provide an answer
+    for a predefined question or set of questions.
+    """
     QUESTION = "Jak wygląda struktura kapitałowa i jaki jest stosunek kapitału własnego do obcego w PKOBP?"
 
     assistant = RAGAssistant(logger=logger)
