@@ -80,8 +80,8 @@ Cennik:
 - Mała pizza: 25 zł
 - Średnia pizza: 30 zł
 - Duża pizza: 35 zł
-- Podwójny składnik: +8 zł
-- Pojedyńczy składnik: +5 zł
+- Każdy podwójny składnik: +8 zł
+- Każdy pojedyńczy składnik: +5 zł
 - Grube ciasto: +3 zł
 """
 
@@ -335,29 +335,30 @@ class PizzaOrderManager:
         return summary
 
 
-def run_react() -> str:
-    """
-    Simulates a reaction-based interface for interactive pizza order processing.
+    def run_react(self) -> str:
+        """
+        Simulates a reaction-based interface for interactive pizza order processing.
 
-    Returns:
-        str: The final pizza order confirmation message or action result.
-    """
-    order_manager = PizzaOrderManager()
-    print("Witaj w pizzerii! Złóż swoje zamówienie:")
+        Returns:
+            str: The final pizza order confirmation message or action result.
+        """
+        order_manager = self
+        print("Witaj w pizzerii! Złóż swoje zamówienie:")
 
-    while True:
-        user_input = input("\nTy: ")
+        while True:
+            user_input = input("\nTy: ")
 
-        if user_input.lower() in ['koniec', 'wyjdź', 'exit']:
-            print("Dziękujemy za wizytę!")
-            break
+            if user_input.lower() in ['koniec', 'wyjdź', 'exit']:
+                print("Dziękujemy za wizytę!")
+                break
 
-        response = order_manager.process_input(user_input)
-        print(f"\nAsystent: {response}")
+            response = order_manager.process_input(user_input)
+            print(f"\nAsystent: {response}")
 
-        if "Zamówienie zostało potwierdzone" in response:
-            break
+            if "Zamówienie zostało potwierdzone" in response:
+                break
 
 
 if __name__ == '__main__':
-    run_react()
+    pizza_manager = PizzaOrderManager()
+    pizza_manager.run_react()

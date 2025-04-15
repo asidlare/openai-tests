@@ -1,7 +1,9 @@
 from openai import OpenAI
 from dotenv import dotenv_values
 import instructor
+import yaml
 
+from llm.rag_utils import root_path
 
 config = dotenv_values(".env")
 
@@ -64,3 +66,9 @@ def get_response_with_instructor(
         max_tokens=max_tokens,
     )
     return response
+
+
+def get_audit_checklist():
+    with open(f"{root_path}/llm/data/audit_checklist.yaml", 'r') as fp:
+        audit_checklist_dict = yaml.safe_load(stream=fp)
+    return audit_checklist_dict
