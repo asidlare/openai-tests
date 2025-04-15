@@ -1,0 +1,192 @@
+applicable_law_version: Dz.U.2024.0.1061
+checklist_name: Audyt umowy najmu
+questions:
+- category: Forma umowy
+  legal_basis:
+  - article: Art. 660
+    description: Umowa najmu nieruchomości lub pomieszczenia na czas dłuższy niż rok
+      powinna być zawarta na piśmie.
+    paragraph: null
+  note: null
+  possible_issues:
+  - Umowa może być uznana za zawartą na czas nieoznaczony.
+  priority: 1
+  question: Czy umowa najmu została zawarta na piśmie, jeśli dotyczy nieruchomości
+    lub pomieszczenia na czas dłuższy niż rok?
+  validation_hint: Sprawdź, czy umowa jest w formie pisemnej.
+- category: Elementy konieczne umowy
+  legal_basis:
+  - article: Art. 659
+    description: Najemca zobowiązuje się płacić wynajmującemu umówiony czynsz.
+    paragraph: null
+  note: null
+  possible_issues:
+  - Brak określenia czynszu może prowadzić do sporów dotyczących płatności.
+  priority: 1
+  question: Czy czynsz został określony w umowie?
+  validation_hint: Sprawdź, czy umowa zawiera klauzulę dotyczącą czynszu.
+- category: Czas trwania
+  legal_basis:
+  - article: Art. 659
+    description: Umowa najmu może być zawarta na czas oznaczony lub nieoznaczony.
+    paragraph: null
+  note: null
+  possible_issues:
+  - Brak określenia czasu trwania może prowadzić do niejasności co do zakończenia
+    umowy.
+  priority: 2
+  question: Czy umowa określa czas trwania najmu?
+  validation_hint: Sprawdź, czy umowa zawiera klauzulę dotyczącą czasu trwania.
+- category: Obowiązki stron
+  legal_basis:
+  - article: Art. 662
+    description: Wynajmujący powinien wydać najemcy rzecz w stanie przydatnym do umówionego
+      użytku.
+    paragraph: null
+  note: null
+  possible_issues:
+  - Najemca może żądać obniżenia czynszu lub wypowiedzieć umowę.
+  priority: 1
+  question: Czy wynajmujący wydał rzecz w stanie przydatnym do umówionego użytku?
+  validation_hint: Sprawdź stan rzeczy w momencie wydania.
+- category: Utrzymanie i naprawy
+  legal_basis:
+  - article: Art. 662
+    description: Wynajmujący powinien utrzymywać rzecz w stanie przydatnym do użytku.
+    paragraph: null
+  - article: Art. 663
+    description: Najemca może wyznaczyć wynajmującemu termin na wykonanie koniecznych
+      napraw.
+    paragraph: null
+  note: null
+  possible_issues:
+  - Brak postanowień może prowadzić do sporów dotyczących odpowiedzialności za naprawy.
+  priority: 2
+  question: Czy umowa zawiera postanowienia dotyczące napraw i utrzymania rzeczy?
+  validation_hint: Sprawdź, czy umowa zawiera klauzule dotyczące napraw i utrzymania.
+- category: Płatności
+  legal_basis:
+  - article: Art. 669
+    description: Najemca obowiązany jest uiszczać czynsz w terminie umówionym.
+    paragraph: null
+  note: null
+  possible_issues:
+  - Brak określenia terminów może prowadzić do opóźnień w płatnościach.
+  priority: 1
+  question: Czy umowa określa terminy płatności czynszu?
+  validation_hint: Sprawdź, czy umowa zawiera klauzulę dotyczącą terminów płatności.
+- category: Wypowiedzenie i zakończenie
+  legal_basis:
+  - article: Art. 673
+    description: Określenie terminów i sposobu wypowiedzenia najmu.
+    paragraph: null
+  note: null
+  possible_issues:
+  - Brak postanowień może prowadzić do niejasności co do możliwości zakończenia umowy.
+  priority: 1
+  question: Czy umowa zawiera postanowienia dotyczące możliwości wypowiedzenia najmu?
+  validation_hint: Sprawdź, czy umowa zawiera klauzule dotyczące wypowiedzenia.
+- category: Prawa stron
+  legal_basis:
+  - article: Art. 668
+    description: Najemca może oddać rzecz osobie trzeciej, jeżeli umowa mu tego nie
+      zabrania.
+    paragraph: null
+  note: null
+  possible_issues:
+  - Brak zgody wynajmującego może prowadzić do naruszenia umowy.
+  priority: 3
+  question: Czy najemca ma prawo do podnajmu lub oddania rzeczy do bezpłatnego używania?
+  validation_hint: Sprawdź, czy umowa zawiera klauzule dotyczące podnajmu.
+- category: Obowiązki stron
+  legal_basis:
+  - article: Art. 664
+    description: Najemca może żądać obniżenia czynszu lub wypowiedzieć umowę z powodu
+      wad rzeczy.
+    paragraph: null
+  note: null
+  possible_issues:
+  - Brak postanowień może prowadzić do sporów dotyczących odpowiedzialności za wady.
+  priority: 2
+  question: Czy umowa zawiera postanowienia dotyczące rękojmi za wady rzeczy?
+  validation_hint: Sprawdź, czy umowa zawiera klauzule dotyczące rękojmi.
+- category: Obowiązki stron
+  legal_basis:
+  - article: Art. 666
+    description: Najemca powinien używać rzeczy w sposób określony w umowie.
+    paragraph: null
+  note: null
+  possible_issues:
+  - Brak określenia sposobu używania może prowadzić do nieporozumień.
+  priority: 3
+  question: Czy umowa określa sposób używania rzeczy najętej?
+  validation_hint: Sprawdź, czy umowa zawiera klauzule dotyczące sposobu używania
+    rzeczy.
+- category: Forma umowy
+  legal_basis:
+  - article: Art. 660
+    description: Umowa najmu powinna być zawarta w formie pisemnej, jeżeli dotyczy
+      lokalu mieszkalnego.
+    paragraph: null
+  note: Zaleca się zawsze spisywać umowę najmu.
+  possible_issues:
+  - Brak dowodu na zawarcie umowy
+  - Trudności w egzekwowaniu praw z umowy
+  priority: 1
+  question: Czy umowa najmu została zawarta w formie pisemnej?
+  validation_hint: Sprawdź, czy umowa jest podpisana przez obie strony.
+- category: Czas trwania
+  legal_basis:
+  - article: Art. 688
+    description: Czas trwania najmu powinien być określony, w przeciwnym razie stosuje
+      się przepisy o wypowiedzeniu.
+    paragraph: null
+  note: Zaleca się określenie czasu trwania umowy.
+  possible_issues:
+  - Niepewność co do długości najmu
+  - Problemy z wypowiedzeniem umowy
+  priority: 1
+  question: Czy określono czas trwania najmu?
+  validation_hint: Sprawdź, czy w umowie jest zapis o czasie trwania najmu.
+- category: Obowiązki stron
+  legal_basis:
+  - article: Art. 681
+    description: Najemca ma obowiązek dokonywania drobnych napraw.
+    paragraph: null
+  - article: Art. 683
+    description: Najemca powinien stosować się do porządku domowego.
+    paragraph: null
+  note: Obowiązki powinny być jasno określone w umowie.
+  possible_issues:
+  - Niejasności w zakresie odpowiedzialności za naprawy
+  - Problemy z egzekwowaniem porządku domowego
+  priority: 1
+  question: Czy strony umowy określiły obowiązki wynajmującego i najemcy?
+  validation_hint: Sprawdź, czy umowa zawiera szczegółowy opis obowiązków.
+- category: Płatności
+  legal_basis:
+  - article: Art. 685.1
+    description: Wynajmujący może podwyższyć czynsz, wypowiadając dotychczasową wysokość
+      czynszu.
+    paragraph: null
+  note: Zaleca się określenie terminów płatności w umowie.
+  possible_issues:
+  - Niejasności co do wysokości czynszu
+  - Problemy z terminowością płatności
+  priority: 1
+  question: Czy umowa zawiera zapisy dotyczące terminów płatności czynszu?
+  validation_hint: Sprawdź, czy umowa zawiera szczegóły dotyczące płatności.
+- category: Wypowiedzenie i zakończenie
+  legal_basis:
+  - article: Art. 682
+    description: Najemca może wypowiedzieć najem bez zachowania terminów wypowiedzenia
+      w przypadku wad lokalu.
+    paragraph: null
+  note: Zaleca się określenie warunków odstąpienia w umowie.
+  possible_issues:
+  - Brak możliwości rozwiązania umowy w przypadku problemów z lokalem
+  - Trudności w egzekwowaniu praw najemcy
+  priority: 1
+  question: Czy umowa przewiduje możliwość odstąpienia od umowy?
+  validation_hint: Sprawdź, czy umowa zawiera klauzule dotyczące wypowiedzenia.
+version: '1.0'
