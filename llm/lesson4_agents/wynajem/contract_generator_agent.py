@@ -137,35 +137,32 @@ CONTRACT_KNOWLEDGE_MAP = """
 - Czy wskazano, jakie rodzaje działalności są niedozwolone?
 
 ## §4 Okres obowiązywania umowy
-- Czy określono, czy umowa jest na czas określony/nieokreślony?
+- Czy określono, czy umowa jest na czas określony/nieokreślony i na jaki okres czasu?
 - Czy wskazano dokładną datę rozpoczęcia i (jeśli dotyczy) zakończenia umowy?
-- Czy wskazano, że umowa nie przwiduje automatycznego przedłużonia umowy po jej zakończeniu i że przedłużenie umowy będzie wymagało osobnego aneksu?
+- Czy wskazano, że przedłużonie umowy będzie wymagało osobnego aneksu?
 - Czy wskazano wyraźnie, że umowa najmu zawarta została na piśmie, aby zapewnić zgodność z polskim prawem?
-- Czy umową zawiera klauzulę dotyczącą konsekwencji naruszania postanowień umowy w przypadku jej wypowiedzania?
+- Czy umową zawiera klauzulę dotyczącą terminu i sposobu wypowiedzenia najmu?
 - Czy zawiera klauzulę dotyczącą możliwości wcześniejszego wypowiedzenia umowy przed upływem terminu na jaki została zawarta?
-- Czy zawiera klauzulę dotyczącą możliwości i szczegółowej precedury wcześniejszego wypowiedzenia umowy przez najemcę w przypadku wad lokalu?
-- Czy zawiera klauzulę dotyczącą możliwości rozwiązania umowy przez najemcę w przypadku poważnych wad lokalu?
-- Czy umowa zawiera klauzulę dotyczącą możliwości odstąpienia od umowy w przypadku wad lokalu?
+- Czy wskazano, że najemca obejrzał lokal i nie stwierdzono poważnych wad lokalu?
 
 ## §5 Czynsz i warunki płatności
-- Czy określono wysokość czynszu oraz szczegółowo określono terminy płatności i konsekwencje ich niedotrzymania?
+- Czy określono wysokość czynszu oraz precyzyjnie określono terminy i formę płatności i konsekwencje ich niedotrzymania?
 - Jakie są akceptowalne formy płatności (np. przelew, gotówka)?
 - Czy uwzględniono ewentualne podwyżki czynszu i szczegółowe zapisy dotyczące procedury podwyżki czynszu?
 - Czy umowa zawiera klauzulę dotyczącą wysokości czynszu?
-- Czy umowa zawiera klauzulę dotyczącą kar za opóźnienia w płatności czynszu?
-- Czy umowa zawiera klauzulę dotyczącą możliwości podwyżki czynszu w przypadku zmiany warunków rynkowych (np. inflacja) i czy zostały te warunki rynkowe wprost określone w umowie?
-- Czy zostało uwzględnione, że podwyżka czynszu nie może przekroczyć 10%?
+- Czy umowa zawiera klauzulę dotyczącą możliwości rozwiązania umowy ze skutkiem natychmiastowym za opóźnienia w płatności conajmniej miesiąc?
+- Czy wskazano, że czynsz pozostaje stały w trakcie obowiązywania umowy, a ewentualne zmiany będą wymagały aneksu?
 - Czy zostały określone zasady podwyżki czynszu (np. z miesięcznym wyprzedzeniem), uwzględnione, że będą one wymagały aneksu oraz uwzględniono warunki wypowiedzenia przez wynajmującego?
 - Czy określono, że koszty mediów to opłaty za prąd, wodę, ogrzewanie i precyzuje, że są one zależne od rachunków od dostawcy prądu?
-- Czy określono, że koszty mediów nie wchodzą w skład czynszu i opłacane są oddzielnie i podwyżki opłat za media zależą od ich dostawcy?
+- Czy określono, że koszty mediów nie wchodzą w skład czynszu i opłacane są oddzielnie zgodnie z aktualnym taryfami dostawcy?
 
 ## §6 Dodatkowe opłaty i obowiązki Najemcy
 - Jakie opłaty dodatkowe obciążają Najemcę (media, eksploatacja, inne)?
-- Czy wskazano obowiązki Najemcy dotyczące utrzymania lokalu (np. drobne naprawy) i że to on ponosi ich koszty?
-- Czy wskazano wyszczególniono zakres drobnych napraw, które są obowiązkiem wynajmującego? Uwzględnione zostały zapisy z Art. 681. kodeksu cywilnego?
+- Czy wskazano obowiązki Najemcy dotyczące utrzymania lokalu i że to on ponosi ich koszty?
+- Czy wyszczególniono zakres drobnych napraw, które są obowiązkiem wynajmującego zgodnie z Art. 681 kodeksu cywilnego?
+- Czy dołączono klauzulę zawierającą treść Art. 681. kodeksu cywilnego, aby doprecyzować termin "drobne naprawy"?
 - Czy opisano procedurę zgłaszania usterek?
-- Czy zawiera klauzulę dotyczącą odwiedzialności wynajmującego za naprawy większe niż drobne?
-- Czy umowa zawiera jasne zapisy o odpowiedzialności wynajmującego za drobne naprawy oraz najemcy za naprawy większe niż drobne?
+- Czy zawiera klauzulę dotyczącą odwiedzialności wynajmującego za naprawy wykraczające poza art 681 kodeksu cywilnego?
 
 ##  §7 Kaucja zabezpieczająca
 - Czy określono wysokość kaucji i sposób jej przekazania?
@@ -179,14 +176,14 @@ CONTRACT_KNOWLEDGE_MAP = """
 - Czy określono liczbę osób mogących mieszkać w lokalu?
 - Czy wskazano możliwość przyjmowania innych osób na stałe?
 - Jakie są zasady informowania Wynajmującego o zmianach w liczbie mieszkańców?
-- Czy umowa zawiera klauzulę zabezpiecząjącą przez podnajmem lokalu i konsekwencje naruszenia tego warunku przez wynajmującego (kary)?
+- Czy umowa zawiera klauzulę zabraniającą podnajmu lokalu i możliwość wypowiedzenia umowy ze skutkiem natychmiastowym w przypadku stwierdzenia podnajmu lokalu?
 
 ## §9 Ubezpieczenie lokalu
 - Czy jasno określono, kto odpowiada za ubezpieczenie nieruchomości?
 - Czy wskazano, czy Najemca jest zobowiązany do wykupienia polisy OC?
 - Czy określono jakie szkody mają być objęte polisą OC?
 - Czy zawiera klauzulę dotyczącą odpowiedzialności najemcy w przypadku braku ubezpieczenia lokalu?
-- Czy zawiera klauzulę o pełnej odpowiedzialności najemcy za szkody w przypadku braku wykupienia przez niego ubezpieczenia lokalu?
+- Czy zawiera klauzulę o pełnej odpowiedzialności najemcy za szkody w lokalu w przypadku braku wykupienia przez niego ubezpieczenia lokalu?
 
 ## §10 Zmiany w umowie
 - Czy określono zasady wprowadzania zmian w umowie (forma pisemna)?

@@ -1,0 +1,298 @@
+2025-04-16 12:59:16 - root - INFO - [DataCollectorAgent] Collecting data...
+Witaj! Podaj dane do umowy najmu:
+
+Ty: Wynajmujacy: Adam Nowak ul. Piękna 12 Warszawa mazowieckie 22-222 PESEL 12345858, Najemca: Krzysztof Kowalski, ul. Ładna 10 Kraków małopolskie, 33-333 PESEL 12121212, Nieruchomość: ul. Rajska 10, Warszawa, 22-333, województwo mazowieckie bardzo dobry stan, wyposażenie: pralka, lodówka, zmywarka, 2 x łóżka, 4 x krzesła, stół, Umowa na 12 miesięcy, Czynsz 4500 zł. co 10 tego przelewem na konto 1112223334445556667, Kaucja 4500 zł.
+
+2025-04-16 12:59:25 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 12:59:25 - root - INFO - current_contract_data=lessor=Party(name='Adam Nowak', address=Address(street='ul. Piękna 12', city='Warszawa', postal_code='22-222'), id_number='12345858', phone=None) lessee=Party(name='Krzysztof Kowalski', address=Address(street='ul. Ładna 10', city='Kraków', postal_code='33-333'), id_number='12121212', phone=None) property_details=Property(address=Address(street='ul. Rajska 10', city='Warszawa', postal_code='22-333'), condition='bardzo dobry stan', equipment=['pralka', 'lodówka', 'zmywarka', '2 x łóżka', '4 x krzesła', 'stół'], intended_use='residential') lease_duration=LeaseDuration(length=12, step='month', is_indefinite=False) rent_details=Rent(amount=4500, currency='PLN', payment_schedule='monthly', payment_day=10, payment_method='bank_transfer', additional_fees=None, deposit=Deposit(amount=4500, currency='PLN', type='jednorazowa', conditions=None))
+2025-04-16 12:59:25 - root - INFO - status=ContractStatus.COMPLETE
+
+Asystent: complete
+2025-04-16 12:59:25 - root - INFO - [ContractGeneratorAgent] Generating contract...
+2025-04-16 12:59:25 - root - INFO - ## §1 Strony umowy
+- Kto jest Wynajmującym i Najemcą (pełne dane osobowe/firma)?
+- Czy podane są dokładne adresy zamieszkania/siedziby stron?
+- Czy wskazano podstawę działania stron (np. pełnomocnictwo)?
+
+
+2025-04-16 12:59:33 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 12:59:33 - root - INFO - [AgentGenerator]: Finished
+2025-04-16 12:59:33 - root - INFO - ['1.1 Wynajmującym jest Adam Nowak, zamieszkały przy ul. Pięknej 12, 22-222 Warszawa, legitymujący się numerem identyfikacyjnym 12345858. Najemcą jest Krzysztof Kowalski, zamieszkały przy ul. Ładnej 10, 33-333 Kraków, legitymujący się numerem identyfikacyjnym 12121212.', '1.2 Strony działają osobiście, nie posługując się pełnomocnikami.']
+2025-04-16 12:59:33 - root - INFO - ## §2 Przedmiot najmu
+- Czy dokładnie opisano lokal (adres, powierzchnia, stan techniczny, przeznaczenie)?
+- Czy uwzględniono wyposażenie lokalu?
+- Czy załączono protokół zdawczo-odbiorczy jako załącznik?
+
+
+2025-04-16 12:59:49 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 12:59:49 - root - INFO - [AgentGenerator]: Finished
+2025-04-16 12:59:49 - root - INFO - ['2.1 Przedmiotem najmu jest lokal mieszkalny położony w Warszawie, przy ul. Rajskiej 10, o powierzchni 60 m², w bardzo dobrym stanie technicznym, przeznaczony do użytku mieszkalnego.', '2.2 Lokal jest wyposażony w następujące urządzenia: pralka, lodówka, zmywarka, 2 x łóżka, 4 x krzesła, stół.', '2.3 Strony zobowiązują się do sporządzenia protokołu zdawczo-odbiorczego, który będzie stanowił załącznik do niniejszej umowy.']
+2025-04-16 12:59:49 - root - INFO - ## §3 Przeznaczenie lokalu
+- Czy jasno określono cel najmu (mieszkalny, biurowy, inny)?
+- Czy zawarto zakaz zmiany przeznaczenia bez zgody Wynajmującego?
+- Czy wskazano, jakie rodzaje działalności są niedozwolone?
+
+
+2025-04-16 13:00:04 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:00:04 - root - INFO - [AgentGenerator]: Finished
+2025-04-16 13:00:04 - root - INFO - ['3.1 Lokal wynajmowany jest wyłącznie w celu mieszkalnym. Jakiekolwiek inne przeznaczenie wymaga uprzedniej pisemnej zgody Wynajmującego.', '3.2 Najemca zobowiązuje się do niezmieniania przeznaczenia lokalu bez pisemnej zgody Wynajmującego. Naruszenie tego postanowienia będzie skutkować rozwiązaniem umowy.', '3.3 Najemca nie ma prawa prowadzić w lokalu działalności, która jest sprzeczna z przepisami prawa, w tym działalności uciążliwej dla sąsiadów, w tym, ale nie ograniczając się do: działalności przemysłowej, handlowej, gastronomicznej oraz wszelkich innych, które mogą zakłócać spokój mieszkańców.']
+2025-04-16 13:00:04 - root - INFO - ## §4 Okres obowiązywania umowy
+- Czy określono, czy umowa jest na czas określony/nieokreślony i na jaki okres czasu?
+- Czy wskazano dokładną datę rozpoczęcia i (jeśli dotyczy) zakończenia umowy?
+- Czy wskazano, że przedłużonie umowy będzie wymagało osobnego aneksu?
+- Czy wskazano wyraźnie, że umowa najmu zawarta została na piśmie, aby zapewnić zgodność z polskim prawem?
+- Czy umową zawiera klauzulę dotyczącą terminu i sposobu wypowiedzenia najmu?
+- Czy zawiera klauzulę dotyczącą możliwości wcześniejszego wypowiedzenia umowy przed upływem terminu na jaki została zawarta?
+- Czy wskazano, że najemca obejrzał lokal i nie stwierdzono poważnych wad lokalu?
+
+
+2025-04-16 13:00:23 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:00:23 - root - INFO - [AgentGenerator]: Finished
+2025-04-16 13:00:23 - root - INFO - ['4.1 Umowa najmu zawarta jest na czas określony, wynoszący 12 miesięcy, począwszy od dnia 1 maja 2025 roku.', '4.2 Przedłużenie umowy najmu na kolejny okres wymaga sporządzenia odrębnego aneksu, podpisanego przez obie strony.', '4.3 Umowa najmu została zawarta na piśmie, co zapewnia jej zgodność z przepisami prawa. Wypowiedzenie umowy może nastąpić z zachowaniem jednomiesięcznego terminu wypowiedzenia, z końcem miesiąca kalendarzowego.', '4.4 Każda ze stron ma prawo do wcześniejszego wypowiedzenia umowy z zachowaniem jednomiesięcznego terminu wypowiedzenia, w przypadku naruszenia postanowień umowy przez drugą stronę.', '4.5 Najemca oświadcza, że przed podpisaniem umowy obejrzał lokal i nie stwierdził w nim poważnych wad, które mogłyby uniemożliwić jego użytkowanie.']
+2025-04-16 13:00:23 - root - INFO - ## §5 Czynsz i warunki płatności
+- Czy określono wysokość czynszu oraz precyzyjnie określono terminy i formę płatności i konsekwencje ich niedotrzymania?
+- Jakie są akceptowalne formy płatności (np. przelew, gotówka)?
+- Czy uwzględniono ewentualne podwyżki czynszu i szczegółowe zapisy dotyczące procedury podwyżki czynszu?
+- Czy umowa zawiera klauzulę dotyczącą wysokości czynszu?
+- Czy umowa zawiera klauzulę dotyczącą możliwości rozwiązania umowy ze skutkiem natychmiastowym za opóźnienia w płatności conajmniej miesiąc?
+- Czy wskazano, że czynsz pozostaje stały w trakcie obowiązywania umowy, a ewentualne zmiany będą wymagały aneksu?
+- Czy zostały określone zasady podwyżki czynszu (np. z miesięcznym wyprzedzeniem), uwzględnione, że będą one wymagały aneksu oraz uwzględniono warunki wypowiedzenia przez wynajmującego?
+- Czy określono, że koszty mediów to opłaty za prąd, wodę, ogrzewanie i precyzuje, że są one zależne od rachunków od dostawcy prądu?
+- Czy określono, że koszty mediów nie wchodzą w skład czynszu i opłacane są oddzielnie zgodnie z aktualnym taryfami dostawcy?
+
+
+2025-04-16 13:00:41 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:00:41 - root - INFO - [AgentGenerator]: Finished
+2025-04-16 13:00:41 - root - INFO - ['5.1 Czynsz za wynajem przedmiotu umowy wynosi 4500 PLN (słownie: cztery tysiące pięćset złotych) miesięcznie, płatny do 10. dnia każdego miesiąca na rachunek bankowy wynajmującego.', '5.2 Płatność czynszu dokonywana będzie w formie przelewu bankowego na rachunek wskazany przez wynajmującego.', '5.3 W przypadku opóźnienia w płatności czynszu przekraczającego jeden miesiąc, wynajmujący ma prawo do rozwiązania umowy ze skutkiem natychmiastowym.', '5.4 Wynajmujący zastrzega sobie prawo do podwyżki czynszu, przy czym każda podwyżka wymagać będzie aneksu do umowy oraz powiadomienia najemcy z miesięcznym wyprzedzeniem.', '5.5 Koszty mediów, w tym opłaty za prąd, wodę oraz ogrzewanie, nie są wliczone w czynsz i będą regulowane oddzielnie na podstawie rachunków wystawionych przez dostawców.']
+2025-04-16 13:00:41 - root - INFO - ## §6 Dodatkowe opłaty i obowiązki Najemcy
+- Jakie opłaty dodatkowe obciążają Najemcę (media, eksploatacja, inne)?
+- Czy wskazano obowiązki Najemcy dotyczące utrzymania lokalu i że to on ponosi ich koszty?
+- Czy wyszczególniono zakres drobnych napraw, które są obowiązkiem wynajmującego zgodnie z Art. 681 kodeksu cywilnego?
+- Czy dołączono klauzulę zawierającą treść Art. 681. kodeksu cywilnego, aby doprecyzować termin "drobne naprawy"?
+- Czy opisano procedurę zgłaszania usterek?
+- Czy zawiera klauzulę dotyczącą odwiedzialności wynajmującego za naprawy wykraczające poza art 681 kodeksu cywilnego?
+
+
+2025-04-16 13:00:56 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:00:56 - root - INFO - [AgentGenerator]: Finished
+2025-04-16 13:00:56 - root - INFO - ['6.1 Najemca zobowiązuje się do pokrywania wszelkich dodatkowych opłat związanych z użytkowaniem lokalu, w tym kosztów mediów (woda, prąd, gaz, internet) oraz opłat eksploatacyjnych. Koszty te będą regulowane na podstawie faktur wystawianych przez dostawców usług.', '6.2 Najemca zobowiązuje się do dbania o lokal oraz jego wyposażenie, a także do ponoszenia kosztów drobnych napraw, które nie przekraczają wartości 100 PLN. Drobne naprawy, zgodnie z Art. 681 Kodeksu cywilnego, obejmują m.in. naprawy uszkodzeń w instalacjach, wymianę żarówek oraz naprawy sprzętu AGD.', '6.3 W przypadku wystąpienia usterek, Najemca zobowiązany jest do niezwłocznego zgłoszenia ich Wynajmującemu, w formie pisemnej lub elektronicznej. Wynajmujący ma obowiązek usunięcia usterek, które nie są obowiązkiem Najemcy, w terminie 14 dni od dnia zgłoszenia.', '6.4 Wynajmujący ponosi odpowiedzialność za naprawy wykraczające poza zakres drobnych napraw, zgodnie z Art. 681 Kodeksu cywilnego. W przypadku niewykonania napraw w ustalonym terminie, Najemca ma prawo do obniżenia czynszu proporcjonalnie do stopnia pogorszenia warunków użytkowania lokalu.']
+2025-04-16 13:00:56 - root - INFO - ##  §7 Kaucja zabezpieczająca
+- Czy określono wysokość kaucji i sposób jej przekazania?
+- Czy jasno i precyzyjnie określono zasady i sposób zwrotu kaucji po zakończeniu umowy?
+- Czy wskazano, na co kaucja może zostać przeznaczona w przypadku szkód?
+- Czy zawiera klauzulę dotyczącą zasad potrącenia kosztów napraw z kaucji?
+- Czy umowa zawiera szczegółowe zapisy dotyczące warunków zwrotu kaucji
+- Czy umowa zawiera szczegółową procedurę zwrotu kaucji i zasad potrącania kosztów przez najemcę po opuszczaniu lokalu przez wynajmującego?
+
+
+2025-04-16 13:01:13 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:01:13 - root - INFO - [AgentGenerator]: Finished
+2025-04-16 13:01:13 - root - INFO - ['7.1 Strony ustalają wysokość kaucji zabezpieczającej na kwotę 4500 PLN, która zostanie przekazana wynajmującemu w formie przelewu bankowego w terminie 7 dni od daty rozpoczęcia umowy.', '7.2 Kaucja zostanie zwrócona najemcy w terminie 30 dni od dnia zakończenia umowy, pod warunkiem, że lokal zostanie zwrócony w stanie niepogorszonym, z uwzględnieniem normalnego zużycia.', '7.3 Wynajmujący ma prawo potrącić z kaucji koszty naprawy szkód powstałych w lokalu, które przekraczają normalne zużycie, po uprzednim przedstawieniu najemcy stosownych dowodów.', '7.4 W przypadku potrącenia kosztów z kaucji, wynajmujący zobowiązany jest do przedstawienia najemcy szczegółowego rozliczenia kosztów w terminie 14 dni od zakończenia umowy.']
+2025-04-16 13:01:13 - root - INFO - ## §8 Mieszkańcy lokalu
+- Czy określono liczbę osób mogących mieszkać w lokalu?
+- Czy wskazano możliwość przyjmowania innych osób na stałe?
+- Jakie są zasady informowania Wynajmującego o zmianach w liczbie mieszkańców?
+- Czy umowa zawiera klauzulę zabraniającą podnajmu lokalu i możliwość wypowiedzenia umowy ze skutkiem natychmiastowym w przypadku stwierdzenia podnajmu lokalu?
+
+
+2025-04-16 13:01:26 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:01:26 - root - INFO - [AgentGenerator]: Finished
+2025-04-16 13:01:26 - root - INFO - ['8.1 W lokalu mogą mieszkać maksymalnie 4 osoby. W przypadku przekroczenia tej liczby, Wynajmujący ma prawo do rozwiązania umowy najmu ze skutkiem natychmiastowym.', '8.2 Najemca zobowiązany jest do poinformowania Wynajmującego o zamiarze przyjęcia nowych mieszkańców na stałe, co najmniej 14 dni przed ich wprowadzeniem.', '8.3 Najemca nie ma prawa do podnajmu lokalu bez pisemnej zgody Wynajmującego. W przypadku stwierdzenia podnajmu, Wynajmujący ma prawo do natychmiastowego rozwiązania umowy najmu.']
+2025-04-16 13:01:26 - root - INFO - ## §9 Ubezpieczenie lokalu
+- Czy jasno określono, kto odpowiada za ubezpieczenie nieruchomości?
+- Czy wskazano, czy Najemca jest zobowiązany do wykupienia polisy OC?
+- Czy określono jakie szkody mają być objęte polisą OC?
+- Czy zawiera klauzulę dotyczącą odpowiedzialności najemcy w przypadku braku ubezpieczenia lokalu?
+- Czy zawiera klauzulę o pełnej odpowiedzialności najemcy za szkody w lokalu w przypadku braku wykupienia przez niego ubezpieczenia lokalu?
+
+
+2025-04-16 13:01:41 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:01:41 - root - INFO - [AgentGenerator]: Finished
+2025-04-16 13:01:41 - root - INFO - ['9.1 Wynajmujący zobowiązuje się do ubezpieczenia budynku, w którym znajduje się lokal. Najemca nie jest zobowiązany do wykupienia polisy ubezpieczeniowej na budynek, jednak ma prawo to uczynić.', '9.2 Najemca zobowiązuje się do wykupienia polisy odpowiedzialności cywilnej (OC), która obejmuje szkody wyrządzone osobom trzecim oraz szkody w mieniu Wynajmującego, powstałe w wyniku użytkowania lokalu.', '9.3 W przypadku braku wykupienia przez Najemcę polisy OC, Najemca ponosi pełną odpowiedzialność za wszelkie szkody wyrządzone w lokalu oraz w mieniu Wynajmującego, a także za szkody wyrządzone osobom trzecim.']
+2025-04-16 13:01:41 - root - INFO - ## §10 Zmiany w umowie
+- Czy określono zasady wprowadzania zmian w umowie (forma pisemna)?
+- Czy wskazano, kto ponosi koszty sporządzenia aneksu?
+
+
+2025-04-16 13:01:56 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:01:56 - root - INFO - [AgentGenerator]: Finished
+2025-04-16 13:01:56 - root - INFO - ['10.1 Wszelkie zmiany niniejszej umowy wymagają formy pisemnej pod rygorem nieważności. Zmiany ustalone w formie ustnej nie będą miały mocy prawnej.', '10.2 Koszty sporządzenia aneksu do umowy ponosi strona, która wniosła o dokonanie zmiany.']
+2025-04-16 13:01:56 - root - INFO - ## §11 Odbiór i zwrot lokalu
+- Czy opisano sposób odbioru lokalu (protokół zdawczo-odbiorczy)?
+- Jakie są zasady zwrotu lokalu po zakończeniu najmu (termin, stan techniczny)?
+- Czy wskazano szczegółowo konsekwencje braku zwrotu w ustalonym terminie?
+
+
+2025-04-16 13:02:15 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:02:15 - root - INFO - [AgentGenerator]: Finished
+2025-04-16 13:02:15 - root - INFO - ['11.1 Odbiór lokalu nastąpi w formie protokołu zdawczo-odbiorczego, który zostanie sporządzony w dniu rozpoczęcia najmu. Protokół ten będzie zawierał szczegółowy opis stanu technicznego lokalu oraz wykaz wyposażenia, w tym: pralka, lodówka, zmywarka, 2 x łóżka, 4 x krzesła, stół.', '11.2 Najemca zobowiązany jest do zwrotu lokalu w terminie do ostatniego dnia trwania umowy, w stanie nie gorszym niż w dniu odbioru, z uwzględnieniem normalnego zużycia. W przypadku stwierdzenia uszkodzeń lub braków, Najemca ponosi odpowiedzialność za ich naprawę lub zwrot kosztów.', '11.3 W przypadku braku zwrotu lokalu w ustalonym terminie, Najemca zobowiązany jest do zapłaty kary umownej w wysokości 200 PLN za każdy dzień opóźnienia, aż do momentu zwrotu lokalu. Kara umowna nie wyłącza możliwości dochodzenia odszkodowania na zasadach ogólnych.']
+2025-04-16 13:02:15 - root - INFO - ## §12 Rozwiązanie umowy
+- Jakie są warunki wypowiedzenia umowy przez każdą ze stron?
+- Czy określono okres wypowiedzenia?
+- Czy umowa zawiera klauzulę dotyczącą możliwości wypowiedzenia najmu przez każdą ze stron?
+- Czy wskazano procedurę rozstrzygania spornych przypadków rozwiązania umowy?
+
+
+2025-04-16 13:02:28 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:02:28 - root - INFO - [AgentGenerator]: Finished
+2025-04-16 13:02:28 - root - INFO - ['12.1 Każda ze stron ma prawo do wypowiedzenia umowy najmu z zachowaniem jednomiesięcznego okresu wypowiedzenia, który biegnie od pierwszego dnia miesiąca następującego po złożeniu wypowiedzenia. Wypowiedzenie powinno być dokonane w formie pisemnej i doręczone drugiej stronie.', '12.2 W przypadku naruszenia postanowień dotyczących wypowiedzenia umowy, strona, która naruszyła te postanowienia, ponosi odpowiedzialność za wszelkie szkody wynikłe z tego naruszenia, w tym koszty postępowania sądowego.', '12.3 Wszelkie spory wynikłe z rozwiązania umowy najmu będą rozstrzygane przez sąd właściwy dla miejsca położenia wynajmowanej nieruchomości.']
+2025-04-16 13:02:28 - root - INFO - ## §13 Załączniki do umowy
+- Czy wymieniono wszystkie załączniki (protokół zdawczo-odbiorczy, wykaz wyposażenia)?
+- Czy wskazano, że załączniki stanowią integralną część umowy?
+
+
+2025-04-16 13:02:35 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:02:35 - root - ERROR - Error! 1 validation error for Contract
+paragraphs.0.goal
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-04-16 13:02:35 - root - INFO - Attempt 0 failed. Retrying...
+2025-04-16 13:02:43 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:02:43 - root - INFO - [AgentGenerator]: Finished
+2025-04-16 13:02:43 - root - INFO - ['13.1 Strony ustalają, że do niniejszej umowy dołączone są następujące załączniki: protokół zdawczo-odbiorczy oraz wykaz wyposażenia. Załączniki te stanowią integralną część umowy i są nieodłącznym elementem regulującym prawa i obowiązki stron.']
+2025-04-16 13:02:43 - root - INFO - ## §14 Postanowienia końcowe
+- Czy określono, które przepisy prawa regulują umowę (np. Kodeks cywilny)?
+- Czy uwzględniono klauzulę dotycząca rozstrzygania sporów (sąd właściwy)?
+- Czy strony potwierdziły zapoznanie się z umową i jej załącznikami?
+
+
+2025-04-16 13:03:00 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:03:00 - root - ERROR - Error! 1 validation error for Contract
+paragraphs.0.goal
+  Input should be a valid string [type=string_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/string_type
+2025-04-16 13:03:00 - root - INFO - Attempt 0 failed. Retrying...
+2025-04-16 13:03:07 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:03:07 - root - INFO - [AgentGenerator]: Finished
+2025-04-16 13:03:07 - root - INFO - ['14.1 Umowa niniejsza podlega przepisom Kodeksu cywilnego oraz ustawie o ochronie praw lokatorów. Wszelkie spory wynikłe z niniejszej umowy będą rozstrzygane przez sąd właściwy dla siedziby wynajmującego. Strony potwierdzają, że zapoznały się z treścią umowy oraz jej załącznikami.']
+2025-04-16 13:03:07 - root - INFO - Umowa najmu
+1.1 Wynajmującym jest Adam Nowak, zamieszkały przy ul. Pięknej 12, 22-222 Warszawa, legitymujący się numerem identyfikacyjnym 12345858. Najemcą jest Krzysztof Kowalski, zamieszkały przy ul. Ładnej 10, 33-333 Kraków, legitymujący się numerem identyfikacyjnym 12121212.
+1.2 Strony działają osobiście, nie posługując się pełnomocnikami.
+2.1 Przedmiotem najmu jest lokal mieszkalny położony w Warszawie, przy ul. Rajskiej 10, o powierzchni 60 m², w bardzo dobrym stanie technicznym, przeznaczony do użytku mieszkalnego.
+2.2 Lokal jest wyposażony w następujące urządzenia: pralka, lodówka, zmywarka, 2 x łóżka, 4 x krzesła, stół.
+2.3 Strony zobowiązują się do sporządzenia protokołu zdawczo-odbiorczego, który będzie stanowił załącznik do niniejszej umowy.
+3.1 Lokal wynajmowany jest wyłącznie w celu mieszkalnym. Jakiekolwiek inne przeznaczenie wymaga uprzedniej pisemnej zgody Wynajmującego.
+3.2 Najemca zobowiązuje się do niezmieniania przeznaczenia lokalu bez pisemnej zgody Wynajmującego. Naruszenie tego postanowienia będzie skutkować rozwiązaniem umowy.
+3.3 Najemca nie ma prawa prowadzić w lokalu działalności, która jest sprzeczna z przepisami prawa, w tym działalności uciążliwej dla sąsiadów, w tym, ale nie ograniczając się do: działalności przemysłowej, handlowej, gastronomicznej oraz wszelkich innych, które mogą zakłócać spokój mieszkańców.
+4.1 Umowa najmu zawarta jest na czas określony, wynoszący 12 miesięcy, począwszy od dnia 1 maja 2025 roku.
+4.2 Przedłużenie umowy najmu na kolejny okres wymaga sporządzenia odrębnego aneksu, podpisanego przez obie strony.
+4.3 Umowa najmu została zawarta na piśmie, co zapewnia jej zgodność z przepisami prawa. Wypowiedzenie umowy może nastąpić z zachowaniem jednomiesięcznego terminu wypowiedzenia, z końcem miesiąca kalendarzowego.
+4.4 Każda ze stron ma prawo do wcześniejszego wypowiedzenia umowy z zachowaniem jednomiesięcznego terminu wypowiedzenia, w przypadku naruszenia postanowień umowy przez drugą stronę.
+4.5 Najemca oświadcza, że przed podpisaniem umowy obejrzał lokal i nie stwierdził w nim poważnych wad, które mogłyby uniemożliwić jego użytkowanie.
+5.1 Czynsz za wynajem przedmiotu umowy wynosi 4500 PLN (słownie: cztery tysiące pięćset złotych) miesięcznie, płatny do 10. dnia każdego miesiąca na rachunek bankowy wynajmującego.
+5.2 Płatność czynszu dokonywana będzie w formie przelewu bankowego na rachunek wskazany przez wynajmującego.
+5.3 W przypadku opóźnienia w płatności czynszu przekraczającego jeden miesiąc, wynajmujący ma prawo do rozwiązania umowy ze skutkiem natychmiastowym.
+5.4 Wynajmujący zastrzega sobie prawo do podwyżki czynszu, przy czym każda podwyżka wymagać będzie aneksu do umowy oraz powiadomienia najemcy z miesięcznym wyprzedzeniem.
+5.5 Koszty mediów, w tym opłaty za prąd, wodę oraz ogrzewanie, nie są wliczone w czynsz i będą regulowane oddzielnie na podstawie rachunków wystawionych przez dostawców.
+6.1 Najemca zobowiązuje się do pokrywania wszelkich dodatkowych opłat związanych z użytkowaniem lokalu, w tym kosztów mediów (woda, prąd, gaz, internet) oraz opłat eksploatacyjnych. Koszty te będą regulowane na podstawie faktur wystawianych przez dostawców usług.
+6.2 Najemca zobowiązuje się do dbania o lokal oraz jego wyposażenie, a także do ponoszenia kosztów drobnych napraw, które nie przekraczają wartości 100 PLN. Drobne naprawy, zgodnie z Art. 681 Kodeksu cywilnego, obejmują m.in. naprawy uszkodzeń w instalacjach, wymianę żarówek oraz naprawy sprzętu AGD.
+6.3 W przypadku wystąpienia usterek, Najemca zobowiązany jest do niezwłocznego zgłoszenia ich Wynajmującemu, w formie pisemnej lub elektronicznej. Wynajmujący ma obowiązek usunięcia usterek, które nie są obowiązkiem Najemcy, w terminie 14 dni od dnia zgłoszenia.
+6.4 Wynajmujący ponosi odpowiedzialność za naprawy wykraczające poza zakres drobnych napraw, zgodnie z Art. 681 Kodeksu cywilnego. W przypadku niewykonania napraw w ustalonym terminie, Najemca ma prawo do obniżenia czynszu proporcjonalnie do stopnia pogorszenia warunków użytkowania lokalu.
+7.1 Strony ustalają wysokość kaucji zabezpieczającej na kwotę 4500 PLN, która zostanie przekazana wynajmującemu w formie przelewu bankowego w terminie 7 dni od daty rozpoczęcia umowy.
+7.2 Kaucja zostanie zwrócona najemcy w terminie 30 dni od dnia zakończenia umowy, pod warunkiem, że lokal zostanie zwrócony w stanie niepogorszonym, z uwzględnieniem normalnego zużycia.
+7.3 Wynajmujący ma prawo potrącić z kaucji koszty naprawy szkód powstałych w lokalu, które przekraczają normalne zużycie, po uprzednim przedstawieniu najemcy stosownych dowodów.
+7.4 W przypadku potrącenia kosztów z kaucji, wynajmujący zobowiązany jest do przedstawienia najemcy szczegółowego rozliczenia kosztów w terminie 14 dni od zakończenia umowy.
+8.1 W lokalu mogą mieszkać maksymalnie 4 osoby. W przypadku przekroczenia tej liczby, Wynajmujący ma prawo do rozwiązania umowy najmu ze skutkiem natychmiastowym.
+8.2 Najemca zobowiązany jest do poinformowania Wynajmującego o zamiarze przyjęcia nowych mieszkańców na stałe, co najmniej 14 dni przed ich wprowadzeniem.
+8.3 Najemca nie ma prawa do podnajmu lokalu bez pisemnej zgody Wynajmującego. W przypadku stwierdzenia podnajmu, Wynajmujący ma prawo do natychmiastowego rozwiązania umowy najmu.
+9.1 Wynajmujący zobowiązuje się do ubezpieczenia budynku, w którym znajduje się lokal. Najemca nie jest zobowiązany do wykupienia polisy ubezpieczeniowej na budynek, jednak ma prawo to uczynić.
+9.2 Najemca zobowiązuje się do wykupienia polisy odpowiedzialności cywilnej (OC), która obejmuje szkody wyrządzone osobom trzecim oraz szkody w mieniu Wynajmującego, powstałe w wyniku użytkowania lokalu.
+9.3 W przypadku braku wykupienia przez Najemcę polisy OC, Najemca ponosi pełną odpowiedzialność za wszelkie szkody wyrządzone w lokalu oraz w mieniu Wynajmującego, a także za szkody wyrządzone osobom trzecim.
+10.1 Wszelkie zmiany niniejszej umowy wymagają formy pisemnej pod rygorem nieważności. Zmiany ustalone w formie ustnej nie będą miały mocy prawnej.
+10.2 Koszty sporządzenia aneksu do umowy ponosi strona, która wniosła o dokonanie zmiany.
+11.1 Odbiór lokalu nastąpi w formie protokołu zdawczo-odbiorczego, który zostanie sporządzony w dniu rozpoczęcia najmu. Protokół ten będzie zawierał szczegółowy opis stanu technicznego lokalu oraz wykaz wyposażenia, w tym: pralka, lodówka, zmywarka, 2 x łóżka, 4 x krzesła, stół.
+11.2 Najemca zobowiązany jest do zwrotu lokalu w terminie do ostatniego dnia trwania umowy, w stanie nie gorszym niż w dniu odbioru, z uwzględnieniem normalnego zużycia. W przypadku stwierdzenia uszkodzeń lub braków, Najemca ponosi odpowiedzialność za ich naprawę lub zwrot kosztów.
+11.3 W przypadku braku zwrotu lokalu w ustalonym terminie, Najemca zobowiązany jest do zapłaty kary umownej w wysokości 200 PLN za każdy dzień opóźnienia, aż do momentu zwrotu lokalu. Kara umowna nie wyłącza możliwości dochodzenia odszkodowania na zasadach ogólnych.
+12.1 Każda ze stron ma prawo do wypowiedzenia umowy najmu z zachowaniem jednomiesięcznego okresu wypowiedzenia, który biegnie od pierwszego dnia miesiąca następującego po złożeniu wypowiedzenia. Wypowiedzenie powinno być dokonane w formie pisemnej i doręczone drugiej stronie.
+12.2 W przypadku naruszenia postanowień dotyczących wypowiedzenia umowy, strona, która naruszyła te postanowienia, ponosi odpowiedzialność za wszelkie szkody wynikłe z tego naruszenia, w tym koszty postępowania sądowego.
+12.3 Wszelkie spory wynikłe z rozwiązania umowy najmu będą rozstrzygane przez sąd właściwy dla miejsca położenia wynajmowanej nieruchomości.
+13.1 Strony ustalają, że do niniejszej umowy dołączone są następujące załączniki: protokół zdawczo-odbiorczy oraz wykaz wyposażenia. Załączniki te stanowią integralną część umowy i są nieodłącznym elementem regulującym prawa i obowiązki stron.
+14.1 Umowa niniejsza podlega przepisom Kodeksu cywilnego oraz ustawie o ochronie praw lokatorów. Wszelkie spory wynikłe z niniejszej umowy będą rozstrzygane przez sąd właściwy dla siedziby wynajmującego. Strony potwierdzają, że zapoznały się z treścią umowy oraz jej załącznikami.
+2025-04-16 13:03:07 - root - INFO - [ContractAuditorAgent] Auditing contract... Version: 1
+2025-04-16 13:03:21 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:03:21 - root - INFO - Umowa najmu została zawarta na czas określony wynoszący 12 miesięcy.
+2025-04-16 13:03:21 - root - INFO - Zgodnie z Art. 688 Kodeksu cywilnego, czas trwania najmu powinien być określony.
+2025-04-16 13:03:21 - root - INFO - Brak określenia czasu trwania może prowadzić do niepewności co do długości najmu.
+2025-04-16 13:03:21 - root - INFO - Problem: Brak jasnego określenia czasu trwania umowy może prowadzić do niepewności co do długości najmu oraz problemów z wypowiedzeniem umowy.
+
+2025-04-16 13:03:21 - root - INFO - Umowa nie zawiera klauzuli dotyczącej możliwości wypowiedzenia najmu w przypadku wad lokalu.
+2025-04-16 13:03:21 - root - INFO - Zgodnie z Art. 682 Kodeksu cywilnego, najemca ma prawo wypowiedzieć najem bez zachowania terminów wypowiedzenia w przypadku wad lokalu.
+2025-04-16 13:03:21 - root - INFO - Brak takiej klauzuli może prowadzić do trudności w egzekwowaniu praw najemcy.
+2025-04-16 13:03:21 - root - INFO - Problem: Brak postanowień dotyczących możliwości wypowiedzenia umowy w przypadku wad lokalu może prowadzić do trudności w egzekwowaniu praw najemcy.
+
+2025-04-16 13:03:21 - root - INFO - Umowa przewiduje karę umowną za opóźnienie w zwrocie lokalu.
+2025-04-16 13:03:21 - root - INFO - Zgodnie z przepisami, kara umowna nie powinna być nadmierna i powinna być proporcjonalna do szkody.
+2025-04-16 13:03:21 - root - INFO - Wysokość kary umownej wynosząca 200 PLN za każdy dzień opóźnienia może być uznana za nieproporcjonalną.
+2025-04-16 13:03:21 - root - INFO - Problem: Wysokość kary umownej za opóźnienie w zwrocie lokalu może być uznana za nieproporcjonalną, co może prowadzić do sporów prawnych.
+
+2025-04-16 13:03:21 - root - INFO - Umowa nie precyzuje, jakie naprawy są uznawane za 'drobne'.
+2025-04-16 13:03:21 - root - INFO - Zgodnie z Art. 681 Kodeksu cywilnego, najemca ma obowiązek dokonywania drobnych napraw.
+2025-04-16 13:03:21 - root - INFO - Brak precyzyjnego określenia może prowadzić do sporów dotyczących odpowiedzialności za naprawy.
+2025-04-16 13:03:21 - root - INFO - Problem: Niejasności w zakresie definicji 'drobnych napraw' mogą prowadzić do sporów dotyczących odpowiedzialności za naprawy.
+
+2025-04-16 13:03:21 - root - INFO - Umowa zawiera postanowienia dotyczące podnajmu, które wymagają pisemnej zgody wynajmującego.
+2025-04-16 13:03:21 - root - INFO - Zgodnie z Art. 668 Kodeksu cywilnego, najemca może oddać rzecz osobie trzeciej, jeżeli umowa mu tego nie zabrania.
+2025-04-16 13:03:21 - root - INFO - Brak zgody wynajmującego na podnajem może prowadzić do naruszenia umowy.
+2025-04-16 13:03:21 - root - INFO - Problem: Brak zgody wynajmującego na podnajem może prowadzić do naruszenia umowy, co może skutkować jej rozwiązaniem.
+
+2025-04-16 13:03:21 - root - INFO - [ContractReviserAgent] Revising contract... Version: 1
+2025-04-16 13:03:21 - root - INFO - [ContractAuditorAgent] Auditing contract... Version: 2
+2025-04-16 13:03:30 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:03:30 - root - INFO - Umowa najmu została zawarta na czas określony wynoszący 12 miesięcy.
+2025-04-16 13:03:30 - root - INFO - Zgodnie z Art. 688 Kodeksu cywilnego, czas trwania najmu powinien być określony.
+2025-04-16 13:03:30 - root - INFO - Brak określenia czasu trwania może prowadzić do niepewności co do długości najmu.
+2025-04-16 13:03:30 - root - INFO - Problem: Brak precyzyjnego określenia czasu trwania najmu może prowadzić do niejasności co do zakończenia umowy.
+
+2025-04-16 13:03:30 - root - INFO - Umowa nie zawiera klauzuli dotyczącej terminów płatności czynszu.
+2025-04-16 13:03:30 - root - INFO - Zgodnie z Art. 669 Kodeksu cywilnego, najemca obowiązany jest uiszczać czynsz w terminie umówionym.
+2025-04-16 13:03:30 - root - INFO - Brak określenia terminów może prowadzić do opóźnień w płatnościach.
+2025-04-16 13:03:30 - root - INFO - Problem: Brak określenia terminów płatności czynszu może prowadzić do sporów dotyczących płatności.
+
+2025-04-16 13:03:30 - root - INFO - Umowa przewiduje możliwość rozwiązania umowy w przypadku naruszenia postanowień.
+2025-04-16 13:03:30 - root - INFO - Jednakże, nie określa szczegółowo, jakie postanowienia mogą być naruszone.
+2025-04-16 13:03:30 - root - INFO - Brak precyzyjnych zapisów może prowadzić do niejasności co do możliwości zakończenia umowy.
+2025-04-16 13:03:30 - root - INFO - Problem: Niejasności w zakresie możliwości wypowiedzenia umowy mogą prowadzić do sporów.
+
+2025-04-16 13:03:30 - root - INFO - Umowa zawiera klauzulę o karze umownej za opóźnienie w zwrocie lokalu.
+2025-04-16 13:03:30 - root - INFO - Jednakże, nie określa, czy kara umowna wyłącza możliwość dochodzenia odszkodowania na zasadach ogólnych.
+2025-04-16 13:03:30 - root - INFO - Brak precyzyjnych zapisów może prowadzić do nieporozumień.
+2025-04-16 13:03:30 - root - INFO - Problem: Niejasności dotyczące kary umownej mogą prowadzić do sporów dotyczących odpowiedzialności.
+
+2025-04-16 13:03:30 - root - INFO - Umowa zobowiązuje najemcę do wykupienia polisy OC.
+2025-04-16 13:03:30 - root - INFO - Jednakże, brak wykupienia polisy przez najemcę skutkuje pełną odpowiedzialnością za szkody.
+2025-04-16 13:03:30 - root - INFO - To może być niekorzystne dla najemcy, jeśli nie jest świadomy konsekwencji.
+2025-04-16 13:03:30 - root - INFO - Problem: Obowiązek wykupienia polisy OC bez odpowiednich wyjaśnień może prowadzić do nieporozumień i sporów.
+
+2025-04-16 13:03:30 - root - INFO - [ContractReviserAgent] Revising contract... Version: 2
+2025-04-16 13:03:30 - root - INFO - [ContractAuditorAgent] Auditing contract... Version: 3
+2025-04-16 13:03:42 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-16 13:03:42 - root - INFO - Umowa najmu została zawarta na czas określony wynoszący 12 miesięcy.
+2025-04-16 13:03:42 - root - INFO - Zgodnie z Art. 688 Kodeksu cywilnego, czas trwania najmu powinien być określony.
+2025-04-16 13:03:42 - root - INFO - Brak określenia czasu trwania może prowadzić do niepewności co do długości najmu oraz problemów z wypowiedzeniem umowy.
+2025-04-16 13:03:42 - root - INFO - Problem: Umowa nie precyzuje, co się stanie po upływie 12 miesięcy, co może prowadzić do niejasności co do dalszego trwania najmu.
+
+2025-04-16 13:03:42 - root - INFO - Umowa przewiduje możliwość podwyżki czynszu, ale wymaga sporządzenia aneksu.
+2025-04-16 13:03:42 - root - INFO - Brak szczegółowych zasad dotyczących podwyżek czynszu może prowadzić do sporów.
+2025-04-16 13:03:42 - root - INFO - Nieokreślenie zasad podwyżek może być niezgodne z zasadą przejrzystości umowy.
+2025-04-16 13:03:42 - root - INFO - Problem: Brak jasnych zasad dotyczących podwyżek czynszu może prowadzić do nieporozumień i sporów między stronami.
+
+2025-04-16 13:03:42 - root - INFO - Umowa zawiera klauzulę o karze umownej za opóźnienie w zwrocie lokalu.
+2025-04-16 13:03:42 - root - INFO - Zgodnie z przepisami, kara umowna powinna być proporcjonalna do szkody.
+2025-04-16 13:03:42 - root - INFO - Wysokość kary 200 PLN za każdy dzień opóźnienia może być uznana za wygórowaną.
+2025-04-16 13:03:42 - root - INFO - Problem: Wysokość kary umownej za opóźnienie w zwrocie lokalu może być niezgodna z zasadą proporcjonalności.
+
+2025-04-16 13:03:42 - root - INFO - Umowa wymaga, aby wszelkie zmiany były dokonane w formie pisemnej.
+2025-04-16 13:03:42 - root - INFO - Brak możliwości ustnych ustaleń może być problematyczny w sytuacjach, gdy strony ustnie uzgodnią zmiany.
+2025-04-16 13:03:42 - root - INFO - Może to prowadzić do sporów dotyczących tego, co zostało ustalone.
+2025-04-16 13:03:42 - root - INFO - Problem: Zbyt restrykcyjne wymagania dotyczące formy zmian mogą prowadzić do trudności w egzekwowaniu ustaleń między stronami.
+
+2025-04-16 13:03:42 - root - INFO - Umowa przewiduje, że najemca ma obowiązek wykupienia polisy OC.
+2025-04-16 13:03:42 - root - INFO - Obowiązek ten może być uznany za niekorzystny dla najemcy, jeśli nie jest odpowiednio uzasadniony.
+2025-04-16 13:03:42 - root - INFO - Brak ubezpieczenia OC może prowadzić do odpowiedzialności najemcy za szkody.
+2025-04-16 13:03:42 - root - INFO - Problem: Obowiązek wykupienia polisy OC przez najemcę może być niekorzystny i niezgodny z zasadą równości stron umowy.
+
+2025-04-16 13:03:42 - root - INFO - [ContractReviserAgent] Revising contract... Version: 3
+2025-04-16 13:03:42 - root - INFO - [ContractAuditorAgent] Auditing contract... Version: 4
+2025-04-16 13:03:42 - root - INFO - Problem: Maksymalna liczba prób przekroczona
+
+2025-04-16 13:03:42 - root - ERROR - Przekroczono maksymalną liczbę prób rewizji
