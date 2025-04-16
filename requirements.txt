@@ -9,3 +9,7 @@ pandas
 pyarrow
 loguru
 mcp
+crewai
+crewai[tools]
+uv
+langchain-openai

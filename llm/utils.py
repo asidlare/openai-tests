@@ -13,6 +13,14 @@ client = OpenAI(
 )
 
 
+def get_openai_api_key():
+    return config["OPENAI_API_KEY"]
+
+
+def get_openai_model():
+    return 'gpt-4o-mini-2024-07-18'
+
+
 def get_simple_response(
     messages,
     model="gpt-4o-mini-2024-07-18",
