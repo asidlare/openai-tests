@@ -21,6 +21,10 @@ def get_openai_model():
     return 'gpt-4o-mini-2024-07-18'
 
 
+def get_serper_api_key():
+    return config["SERPER_API_KEY"]
+
+
 def get_simple_response(
     messages,
     model="gpt-4o-mini-2024-07-18",
