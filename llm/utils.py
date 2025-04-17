@@ -18,7 +18,7 @@ def get_openai_api_key():
 
 
 def get_openai_model():
-    return 'gpt-4o-mini-2024-07-18'
+    return 'gpt-4.1-mini'
 
 
 def get_serper_api_key():
@@ -27,7 +27,7 @@ def get_serper_api_key():
 
 def get_simple_response(
     messages,
-    model="gpt-4o-mini-2024-07-18",
+    model="gpt-4.1-mini",
     temperature=0,
     max_tokens=200
 ):
