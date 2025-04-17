@@ -31,6 +31,7 @@ class L4ToolsCustomerOutreach():
     def sales_rep_agent(self) -> Agent:
         return Agent(
             config=self.agents_config['sales_rep_agent'],
+            allow_delegation=False,
             verbose=True
         )
 
