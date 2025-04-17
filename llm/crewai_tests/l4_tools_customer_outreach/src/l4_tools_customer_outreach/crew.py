@@ -81,4 +81,5 @@ class L4ToolsCustomerOutreach():
             tasks=self.tasks, # Automatically created by the @task decorator
             process=Process.sequential,
             verbose=True,
+            memory=True,
         )
