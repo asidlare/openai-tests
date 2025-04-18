@@ -1,0 +1,23 @@
+[project]
+name = "tasks_financial_analysis"
+version = "0.1.0"
+description = "tasks_financial_analysis using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+    "crewai[tools]>=0.114.0,<1.0.0"
+]
+
+[project.scripts]
+tasks_financial_analysis = "tasks_financial_analysis.main:run"
+run_crew = "tasks_financial_analysis.main:run"
+train = "tasks_financial_analysis.main:train"
+replay = "tasks_financial_analysis.main:replay"
+test = "tasks_financial_analysis.main:test"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.crewai]
+type = "crew"
